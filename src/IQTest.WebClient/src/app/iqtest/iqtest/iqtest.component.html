@@ -1,0 +1,88 @@
+<div class="container mt-3">
+    <div id="test">
+        <h2 class="text-center font-weight-normal">{{testName}}</h2>
+        <h6 class="text-center">{{testDescription}}</h6>
+        <hr />
+
+        <div class="text-center" *ngIf="testMode === testModeType.None">
+          <p>
+            Make sure you are in a quiet place where you can focus.<br>
+            <br>
+            You are about to solve {{testConfig.numberOfQuestions}} visual exercises that gradually increase in difficulty.<br>
+            <br>
+            There is no time limit, but do not distract yourself during the test.<br>
+            <br>
+            Do not use the internet or any external help.<br>
+            <br>
+            When you are ready, click on the button below to begin.<br>
+            <br>
+            Your result at the end of this test will inform you of your IQ.
+          </p>
+          <button [disabled]="questions.length <= 0" class="btn btn-primary btn-lg" (click)="startTest()">
+            <span *ngIf="loadingQuestions" class="spinner-border spinner-border-lg mr-1"></span>
+            <fa-icon [icon]="faPlay"></fa-icon> START THE TEST
+          </button>
+        </div>
+      <div *ngIf="testMode === testModeType.Test">
+        <div *ngFor="let question of getQuestion()">
+          <div class="badge badge-info">Question {{testPager.index + 1}} of {{testPager.count}}</div>
+          <div *ngIf="testConfig.showClock" class="badge badge-info float-right">Time elapsed: {{elapsedTime}}</div>
+          <div *ngIf="testConfig.duration !== 0" class="badge badge-info float-right">Time: {{elapsedTime}} / {{duration}}</div>
+          <h3 class="font-weight-normal">{{testPager.index + 1}}.
+              <span>{{question.name}}</span>
+              <div class="text-center">
+                <img src="{{question.imagePath}}" class="img-fluid" />
+              </div>
+          </h3>
+          <hr />
+          <div class="row text-left options">
+            <div class="col-4 text-center" *ngFor="let option of question.options">
+              <div class="option">
+                <label class="font-weight-normal" [attr.for]="option.id">
+                  <input id="{{option.id}}" type="checkbox" [(ngModel)]="option.isSelected" (change)="onSelect(question, option);" /> <img class="img-fluid option-img" src="{{option.imagePath}}" />
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+            <button class="btn btn-primary btn-lg" *ngIf="testConfig.allowBack" (click)="goTo(0);"><fa-icon [icon]="faFastBackward"></fa-icon> First</button>
+            <button class="btn btn-primary btn-lg" *ngIf="testConfig.allowBack" (click)="goTo(testPager.index - 1);"><fa-icon [icon]="faStepBackward"></fa-icon>Prev</button>
+            <button class="btn btn-primary btn-lg" (click)="goTo(testPager.index + 1);">Next <fa-icon [icon]="faStepForward"></fa-icon></button>
+            <button class="btn btn-primary btn-lg" *ngIf="testConfig.allowBack" (click)="goTo(testPager.count - 1);">Last <fa-icon [icon]="faFastForward"></fa-icon></button>
+            <!--<pagination *ngIf="config.showPager" direction-links="false" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>-->
+        </div>
+      </div>
+
+      <div class="row text-center" *ngIf="testMode === testModeType.Review">
+          <div class="col-4 cursor-pointer" *ngFor="let question of testQuestions; let index = index;">
+            <div (click)="goTo(index)" class="p-3 mb-2 {{ isAnswered(question) == true ? 'bg-info': 'bg-warning' }}">{{index + 1}}. {{ isAnswered(question) ? 'Answered' : 'Not Answered' }}</div>
+          </div>
+      </div>
+
+      <hr />
+
+      <div *ngIf="testMode !== testModeType.None && testMode !== testModeType.Result" class="text-center">
+        <button *ngIf="testConfig.allowReview" class="btn btn-info btn-lg" (click)="switchReviewMode()">{{ testMode === testModeType.Review ? 'Test' : 'Review' }}</button>
+        <button class="btn btn-primary btn-lg" (click)="submitTest()" >Submit</button>
+      </div>
+
+      <div *ngIf='testMode === testModeType.Result' class="card m-3">
+          <div class="card-header">
+            <p class="h2 text-center">Your Results Are Ready!</p>
+          </div>
+          <div class="card-body">
+              <h5 class="card-title text-center">Fill out the form below and we'll send you the results directly to your e-mail.</h5>
+              <div class="card-text">
+                  <div class="row d-flex justify-content-center">
+                      <div class="col col-12 col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                        <app-submitresultform [iqTestScore]="testFinalScore"></app-submitresultform>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+    </div>
+</div>

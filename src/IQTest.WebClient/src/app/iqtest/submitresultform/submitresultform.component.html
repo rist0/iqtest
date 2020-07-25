@@ -1,0 +1,23 @@
+<form [formGroup]="submitResultForm" (ngSubmit)="onSubmit()">
+    <label>First Name</label>
+    <input type="text" formControlName="fullName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }" />
+    <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
+        <div *ngIf="f.fullName.errors.required">Full name is required</div>
+    </div>
+    <label>Email</label>
+    <input type="text" formControlName="emailAddress" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.emailAddress.errors }" />
+    <div *ngIf="submitted && f.emailAddress.errors" class="invalid-feedback">
+        <div *ngIf="f.emailAddress.errors.required">Email is required</div>
+        <div *ngIf="f.emailAddress.errors.email">Email must be a valid email address</div>
+    </div>
+    <div class="mt-1">
+        <button [disabled]="loading || hasSentMail" class="btn btn-primary mr-1">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+             Send my results
+        </button>
+        <!-- <button class="btn btn-secondary" type="reset" (click)="onReset()">Reset</button> -->
+    </div>
+    <div *ngIf="submitMessageResponse">
+        <p class="text-info">{{submitMessageResponse}}</p>
+    </div>
+</form>

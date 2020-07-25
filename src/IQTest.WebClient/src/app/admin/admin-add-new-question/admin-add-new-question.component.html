@@ -1,0 +1,100 @@
+<div class="container">
+    <div class="card m-3">
+        <div class="card-header">
+          <p class="h2 text-center">Add New Question</p>
+        </div>
+        <div class="card-body">
+            <div class="card-text">
+                <div class="row d-flex justify-content-center">
+                    <div class="col col-12 col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                            <div class="form-group">
+                                <label for="questionTitle">Question Title</label>
+                                <input type="text" formControlName="questionTitle" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.questionTitle.errors }" placeholder="Question title" />
+                                  <div *ngIf="submitted && f.questionTitle.errors" class="invalid-feedback">
+                                      <div *ngIf="f.questionTitle.errors.required">Question title is required</div>
+                                      <div *ngIf="f.questionTitle.errors.minlength">Question title must be at least 10 characters</div>
+                                  </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="questionDifficulty">Question Difficulty</label>
+                                <input name="questionDifficulty" 
+                                        formControlName="questionDifficulty"
+                                        type="range"
+                                        class="form-control-range"
+                                        [ngClass]="{ 'is-invalid': submitted && f.questionTitle.errors }"
+                                        min="1"
+                                        max="10"
+                                        step="1"
+                                        value="1" />
+                                <div *ngIf="submitted && f.questionDifficulty.errors" class="invalid-feedback">
+                                    <div *ngIf="f.questionDifficulty.errors.required">Question difficulty is required</div>
+                                    <div *ngIf="f.questionDifficulty.errors.min">Question difficulty must be at least 1.</div>
+                                    <div *ngIf="f.questionDifficulty.errors.max">Question difficulty must be at most 10.</div>
+                                </div>  
+                            </div>
+
+                            <div class="form-group">
+                                <label for="questionImage">Choose Image</label>
+                                <input type="file" 
+                                    class="form-control-file" 
+                                    id="questionImage"
+                                    formControlName="questionImage"
+                                    (change)="onChangeQuestionImage($event)"
+                                    [ngClass]="{ 'is-invalid': submitted && f.questionImage.errors }">
+                                <div *ngIf="submitted && f.questionImage.errors" class="invalid-feedback">
+                                    <div *ngIf="f.questionImage.errors.required">Image is required</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Number of options</label>
+                                <select formControlName="numberOfOptions" class="form-control" (change)="onChangeOptions($event)" [ngClass]="{ 'is-invalid': submitted && f.numberOfOptions.errors }">
+                                    <option value=""></option>
+                                    <option *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">{{i}}</option>
+                                </select>
+                                <div *ngIf="submitted && f.numberOfOptions.errors" class="invalid-feedback">
+                                    <div *ngIf="f.numberOfOptions.errors.required">Number of options is required</div>
+                                </div>
+                            </div>
+
+                            <div *ngFor="let option of opts.controls; let i = index" class="list-group list-group-flush">
+                                <div class="list-group-item">
+                                    <h5 class="card-title">Option {{i + 1}}</h5>
+                                    <div [formGroup]="option" class="form align-items-center">
+                                        <div class="form-group">
+                                            <label for="optionImage">Choose Image</label>
+                                            <input type="file" 
+                                                class="form-control-file" 
+                                                id="optionImage"
+                                                (input)="onChangeOptionImages($event, i)"
+                                                [ngClass]="{ 'is-invalid': submitted && option.controls.image.errors }">
+                                            <div *ngIf="submitted && option.controls.image.errors" class="invalid-feedback">
+                                                <div *ngIf="option.controls.image.errors.required">Image is required</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group form-check">
+                                            <input type="checkbox" formControlName="isAnswer" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && option.controls.isAnswer.errors }" />
+                                            <label class="form-check-label" for="isAnswer">
+                                                Is answer
+                                            </label>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button [disabled]="loading" class="btn btn-primary mr-1">
+                                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                Add Question
+                            </button>
+                            <button class="btn btn-secondary mr-1" type="reset" (click)="onReset()">Reset</button>
+                            <button class="btn btn-secondary" type="button" (click)="onClear()">Clear</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

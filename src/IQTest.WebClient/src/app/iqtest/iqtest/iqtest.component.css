@@ -1,0 +1,46 @@
+.btn{
+    margin: 1px;
+    border-radius: 0;
+}
+
+.option{
+    font-size:20px;
+    padding:10px;
+    margin:3px;
+}
+#test .options input[type=checkbox] {
+    height:22px;
+    width:22px;
+}
+
+.option-img {
+    max-height: 140px;
+    max-width: 140px;
+    width: 100%;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.result-question{
+    background-color:#eee;
+    margin:4px;
+    padding:6px;
+}
+
+@media only screen and (max-width: 480px) {
+    h1,.h1{
+        font-size:22px;
+    }
+    h2,.h2{
+        font-size:20px;
+    }
+    h3,.h3{
+        font-size:18px;
+    }
+    .option {
+        font-size: 16px;
+        padding: 6px;
+    }
+}

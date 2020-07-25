@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="card mt-2">
+        <div class='card-header'>
+            <p class="h2">Question Details</p>
+        </div>
+
+        <div *ngIf="question" class='card-body'>
+            <div class='row d-flex align-items-start flex-column'>
+                <div class="col">
+                    <p class="text-dark h4"><b>Question ID:</b> {{question.id}}</p>
+                </div>
+                
+                <div class="col">
+                    <p class="text-dark h4"><b>Question Title:</b> {{question.name}}</p>
+                </div>
+                
+                <div class="col">
+                    <p class="text-dark h4"><b>Question Image:</b></p>
+                    <img class="img-fluid" [src]="question.imagePath" />
+                </div>
+                
+                <div class="col">
+                    <p class="text-dark h4"><b>Question Options (answer marked with green background):</b></p>
+                    <div class="row">
+                        <div *ngFor="let option of question.options" class="col col-12 col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                            <div class="card mb-3" [ngClass]="{'bg-danger':!option.isAnswer, 'bg-success':option.isAnswer}" style="max-width: 18rem;">
+                                <div class="card-body text-center">
+                                  <p class="card-text">
+                                        <img class="img-fluid" [src]="option.imagePath" />
+                                  </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class='card-footer'>
+                <button class='btn btn-primary' 
+                    style='width:80px'
+                    (click)='onBack()'>
+                    <fa-icon [icon]="faChevronLeft"></fa-icon> Back
+                </button>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" [routerLink]="['']">IQ Test</a>
+
+    <div class="collapse navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/iqtest']" [routerLinkActive]="['active']">IQ Test</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/contact']" [routerLinkActive]="['active']">Contact</a>
+        </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li *ngIf="!loggedUser" class="nav-item">
+                <a class="nav-link" [routerLink]="['/admin/login']" [routerLinkActive]="['active']">Login</a>
+            </li>
+            <li *ngIf="loggedUser" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Profile
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <h6 class="dropdown-header">Welcome back, {{loggedUser.username}}</h6>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" [routerLink]="['/admin']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">View Questions</a>
+                  <a class="dropdown-item" [routerLink]="['/admin/add-new-question']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">Add New Question</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" type="button" (click)="logout()">Logout</a>
+                </div>
+              </li>
+        </ul>
+    </div>
+</nav>

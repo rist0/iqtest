@@ -1,0 +1,152 @@
+[
+	{
+		"id": 1,
+		"name": "Choose the missing figure.",
+		"imagePath": "https://international-iq-test.com/exos/ex1/ex1.png",
+		"options": [
+			{
+				"id": 1,
+				"questionId": 1,
+				"imagePath": "https://international-iq-test.com/exos/ex1/ex1_a.png",
+				"isAnswer": false,
+				"isSelected": false
+			},
+			{
+				"id": 2,
+				"questionId": 1,
+				"imagePath": "https://international-iq-test.com/exos/ex1/ex1_b.png",
+				"isAnswer": false,
+				"isSelected": false
+			},
+			{
+				"id": 3,
+				"questionId": 1,
+				"imagePath": "https://international-iq-test.com/exos/ex1/ex1_c.png",
+				"isAnswer": false,
+				"isSelected": false
+			},
+			{
+				"id": 4,
+				"questionId": 1,
+				"imagePath": "https://international-iq-test.com/exos/ex1/ex1_d.png",
+				"isAnswer": true,
+				"isSelected": false
+			},
+			{
+				"id": 5,
+				"questionId": 1,
+				"imagePath": "https://international-iq-test.com/exos/ex1/ex1_e.png",
+				"isAnswer": false,
+				"isSelected": false
+			},
+			{
+				"id": 6,
+				"questionId": 1,
+				"imagePath": "https://international-iq-test.com/exos/ex1/ex1_f.png",
+				"isAnswer": false,
+				"isSelected": false
+			}
+		],
+		"answered": false
+	},
+	{
+		"id": 2,
+		"name": "Choose the missing figure.",
+		"imagePath": "https://international-iq-test.com/exos/ex13/ex13.png",
+		"options": [
+			{
+				"id": 7,
+				"questionId": 2,
+				"imagePath": "https://international-iq-test.com/exos/ex13/ex13_a.png",
+				"isAnswer": false,
+				"isSelected": false
+			},
+			{
+				"id": 8,
+				"questionId": 2,
+				"imagePath": "https://international-iq-test.com/exos/ex13/ex13_b.png",
+				"isAnswer": false,
+				"isSelected": false
+			},
+			{
+				"id": 9,
+				"questionId": 2,
+				"imagePath": "https://international-iq-test.com/exos/ex13/ex13_c.png",
+				"isAnswer": true,
+				"isSelected": false
+			},
+			{
+				"id": 10,
+				"questionId": 2,
+				"imagePath": "https://international-iq-test.com/exos/ex13/ex13_d.png",
+				"isAnswer": false,
+				"isSelected": false
+			},
+			{
+				"id": 11,
+				"questionId": 2,
+				"imagePath": "https://international-iq-test.com/exos/ex13/ex13_e.png",
+				"isAnswer": false,
+				"isSelected": false
+			},
+			{
+				"id": 12,
+				"questionId": 2,
+				"imagePath": "https://international-iq-test.com/exos/ex13/ex13_f.png",
+				"isAnswer": false,
+				"isSelected": false
+			}
+		],
+		"answered": false
+	},
+	{
+		"id": 3,
+		"name": "Choose the missing figure.",
+		"imagePath": "https://international-iq-test.com/exos/ex6/ex6.png",
+		"options": [
+			{
+				"id": 13,
+				"questionId": 3,
+				"imagePath": "https://international-iq-test.com/exos/ex6/ex6_a.png",
+				"isAnswer": false,
+				"isSelected": false
+			},
+			{
+				"id": 14,
+				"questionId": 3,
+				"imagePath": "https://international-iq-test.com/exos/ex6/ex6_b.png",
+				"isAnswer": false,
+				"isSelected": false
+			},
+			{
+				"id": 15,
+				"questionId": 3,
+				"imagePath": "https://international-iq-test.com/exos/ex6/ex6_c.png",
+				"isAnswer": true,
+				"isSelected": false
+			},
+			{
+				"id": 16,
+				"questionId": 3,
+				"imagePath": "https://international-iq-test.com/exos/ex6/ex6_d.png",
+				"isAnswer": false,
+				"isSelected": false
+			},
+			{
+				"id": 17,
+				"questionId": 3,
+				"imagePath": "https://international-iq-test.com/exos/ex6/ex6_e.png",
+				"isAnswer": false,
+				"isSelected": false
+			},
+			{
+				"id": 18,
+				"questionId": 3,
+				"imagePath": "https://international-iq-test.com/exos/ex6/ex6_f.png",
+				"isAnswer": false,
+				"isSelected": false
+			}
+		],
+		"answered": false
+	}
+]

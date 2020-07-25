@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200704174915_DefaultAdmin.cs" />
+    <Compile Remove="Migrations\20200704174915_DefaultAdmin.Designer.cs" />
+    <Compile Remove="Migrations\20200704174942_DefaultAdmin2.cs" />
+    <Compile Remove="Migrations\20200704174942_DefaultAdmin2.Designer.cs" />
+    <Compile Remove="Migrations\20200704175348_AddedUserEntityAndDefaultAdmin.cs" />
+    <Compile Remove="Migrations\20200704175348_AddedUserEntityAndDefaultAdmin.Designer.cs" />
+    <Compile Remove="Migrations\20200704175409_AddedUserEntityAndDefaultAdmin2.cs" />
+    <Compile Remove="Migrations\20200704175409_AddedUserEntityAndDefaultAdmin2.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IQTest.Core\IQTest.Core.csproj" />
+  </ItemGroup>
+
+</Project>
