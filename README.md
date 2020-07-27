@@ -29,3 +29,6 @@ In order to run the application, you must have the following prerequisites insta
 ### Running the web client
 1. Navigate to the folder in cmd and install the packages with  `npm install`
 2. Run `npm start` or `ng serve`. It should start listening at http://localhost:4200/
+
+## Preview
+You can find screenshots of the website in the [preview folder](/preview/)
