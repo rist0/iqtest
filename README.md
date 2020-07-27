@@ -11,6 +11,7 @@ Technologies and libraries used:
 - [FontAwesome](https://github.com/FortAwesome/Font-Awesome)
 - [AutoMapper](https://github.com/AutoMapper/AutoMapper)
 - [SendGrid](https://github.com/sendgrid/sendgrid-csharp)
+- [Newtonsoft.Json](https://github.com/JamesNK/Newtonsoft.Json)
 
 ## Prerequisites
 In order to run the application, you must have the following prerequisites installed on your machine:
